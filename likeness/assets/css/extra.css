@@ -1,0 +1,196 @@
+/* 1. Lokale Schriftarten deklarieren */
+@font-face {
+    font-family: "ebgaramond";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/ebgaramond.ttf") format("truetype");
+}
+  
+@font-face {
+    font-family: "inter";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/inter.ttf") format("truetype");
+}
+
+:root {
+    --md-text-font: "inter", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    --md-code-font: monospace;
+}
+
+:root  > * {
+    --md-primary-fg-color:  #6a777c;
+    --md-default-bg-color:  #222220;
+    --md-typeset-a-color:   #c1b2a4 !important; 
+    --md-accent-fg-color:   #c1b2a4;
+    --md-accent-fg-color--transparent: rgba(172, 150, 128, 0.1);
+}
+
+/* Opacity-based interaction for article and navigation links */
+.md-typeset a:not(.md-button):not(.headerlink) {
+    opacity: 0.8;
+    text-decoration: none;
+    transition: opacity 125ms ease;
+}
+
+.md-typeset a:not(.md-button):not(.headerlink):hover,
+.md-typeset a:not(.md-button):not(.headerlink):focus {
+    opacity: 1;
+    color: var(--md-typeset-a-color);
+    text-decoration: none;
+}
+
+.md-nav__link {
+    opacity: 0.8;
+    transition: opacity 125ms ease;
+}
+
+.md-nav--primary .md-nav__item--active > .md-nav__link {
+    opacity: 1;
+}
+
+.md-nav__link[href]:hover,
+.md-nav__link[href]:focus,
+.md-nav__link[for]:hover,
+.md-nav__link[for]:focus {
+    opacity: 1;
+    color: inherit;
+    text-decoration: none;
+}
+
+.md-nav--primary .md-nav__item--active > .md-nav__link:hover,
+.md-nav--primary .md-nav__item--active > .md-nav__link:focus {
+    opacity: 1;
+    color: var(--md-typeset-a-color);
+    text-decoration: none;
+}
+
+/* Align admonitions and details boxes with custom accent palette */
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset .admonition.note,
+.md-typeset details.note {
+    border-color: #c1b2a4;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary,
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+    background-color: rgba(172, 150, 128, 0.1);
+}
+
+.md-typeset .admonition-title:before,
+.md-typeset summary:before,
+.md-typeset .note > .admonition-title:before,
+.md-typeset .note > summary:before {
+    background-color: #c1b2a4;
+}
+
+.md-typeset .admonition-title:after,
+.md-typeset summary:after,
+.md-typeset .note > .admonition-title:after,
+.md-typeset .note > summary:after {
+    color: #c1b2a4;
+}
+
+.md-typeset .admonition:focus-within,
+.md-typeset details:focus-within {
+    box-shadow: 0 0 0 0.2rem rgba(172, 150, 128, 0.1);
+}
+  
+  
+.md-typeset pre > code {
+    border: 1px solid #37474f;
+    border-radius: 4px;
+}
+
+.md-search__form {
+    border-radius: 2em;
+}
+
+.md-tabs__item:nth-child(1), .md-tabs__item:nth-child(7) {
+    position: relative;
+    margin-right: 1em;
+}
+
+.md-tabs__item:nth-child(1)::after, .md-tabs__item:nth-child(7)::after {
+    content: "";
+    position: absolute;
+    right: -0.5em;
+    top: 40%;
+    height: 30%;
+    width: 1px;
+    background-color: var(--md-default-fg-color--lighter, rgba(255, 255, 255, 0.3));
+    pointer-events: none;
+}
+
+.md-logo {
+    display: none !important;
+}
+
+.md-header__title {
+    margin-left: 0.6rem !important;
+    font-family: "ebgaramond", "serif";
+    font-variant: small-caps;
+    font-size: 1.3rem;
+}
+
+.md-nav__title[for="__drawer"] {
+    font-family: "ebgaramond", "serif" !important;
+    font-variant: small-caps !important;
+    font-size: 1.3rem !important;
+    height: auto !important;
+    line-height: normal !important;
+    padding: 0.6em !important;
+}
+
+/* External link indicator icon */
+.md-content a[target="_blank"]:not(.md-icon):not(.md-button)::after {
+    display: inline-block;
+    font-size: 0.8em;
+    color: currentColor;
+    content: "↗";
+    margin-left: 0.4em;
+    vertical-align: top;
+}
+
+/* Footer legal links and mobile single-line alignment */
+.md-copyright {
+    width: auto;
+    margin: auto 0.6rem;
+}
+
+.md-footer-meta__inner {
+    align-items: center;
+}
+
+.md-footer-meta__links {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-left: auto;
+    font-size: 0.64rem;
+}
+
+.md-footer-meta__links a {
+    color: inherit;
+    opacity: 0.8;
+    text-decoration: none;
+    transition: opacity 125ms ease;
+    white-space: nowrap;
+}
+
+.md-footer-meta__links a:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width: 45em) {
+    .md-footer-meta__inner {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .md-copyright__made-with {
+        display: none;
+    }
+}
